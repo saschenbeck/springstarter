@@ -1,10 +1,10 @@
-package codeup.com.springstarter;
+package codeup.com.blog;
 
 //import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;
 
 @SpringBootTest
-class SpringstarterApplicationTests {
+class BlogApplicationTests {
 
 //    @Test
     void contextLoads() {

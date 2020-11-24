@@ -11,7 +11,7 @@
     <groupId>codeup.com</groupId>
     <artifactId>springstarter</artifactId>
     <version>0.0.1-SNAPSHOT</version>
-    <name>springstarter</name>
+    <name>blog_test</name>
     <description>Demo project for Spring Boot</description>
 
     <properties>
