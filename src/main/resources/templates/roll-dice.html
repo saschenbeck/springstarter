@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Dice Roll</title>
+    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet"
+          integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+    <script type="text/javascript" src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
+    <script type="text/javascript" src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js" integrity="sha384-OgVRvuATP1z7JjHLkuOU7Xw704+h835Lr+6QL9UvYjZE3Ipu6Tp75j7Bh/kR0JKI" crossorigin="anonymous"></script>
+</head>
+<body>
+
+    <h1>Choose a number!</h1>
+
+    <a th:href="@{/roll-dice/1}" class="btn btn-primary">1</a>
+    <a th:href="@{/roll-dice/2}" class="btn btn-primary">2</a>
+    <a th:href="@{/roll-dice/3}" class="btn btn-primary">3</a>
+    <a th:href="@{/roll-dice/4}" class="btn btn-primary">4</a>
+    <a th:href="@{/roll-dice/5}" class="btn btn-primary">5</a>
+    <a th:href="@{/roll-dice/6}" class="btn btn-primary">6</a>
+
+    <div th:if="${chosen}">
+        You chose was <span th:text="${chosen}"></span>.<br>
+        The rolled number is <span th:text="${randomNumber}"></span>.
+    </div>
+
+    <h3 th:if="${isMatching}">
+        You were correct!
+    </h3>
+
+    <h3 th:if="${isMatching != null && !isMatching}">
+        You were incorrect!
+    </h3>
+
+</body>
+</html>
