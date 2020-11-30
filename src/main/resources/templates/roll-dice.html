@@ -7,7 +7,7 @@
 <body>
     <nav th:replace="partials/navbar :: nav"></nav>
 
-    <h1>Choose a number!</h1>
+    <header th:replace="partials/header :: header('Roll the dice')"></header>
 
     <a th:href="@{/roll-dice/1}" class="btn btn-primary">1</a>
     <a th:href="@{/roll-dice/2}" class="btn btn-primary">2</a>
