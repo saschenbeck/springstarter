@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head th:replace="partials/head :: head('All Posts')">
+    <meta charset="UTF-8">
+    <title>Dice Roll</title>
+</head>
+<body>
+    <nav th:replace="partials/navbar :: nav"></nav>
+
+    <header th:replace="partials/header :: header('Welcome to the Blog!')"></header>
+
+    <main class="container">
+        <div class="card" th:each="post : ${posts}">
+            <h3 class="text-center" th:text="${post.title}"></h3>
+            <p th:text="${post.body}"></p>
+        </div>
+    </main>
+
+    <th:block th:include="partials/scripts :: scripts"></th:block>
+    <footer th:replace="partials/footer :: footer"></footer>
+</body>
+</html>

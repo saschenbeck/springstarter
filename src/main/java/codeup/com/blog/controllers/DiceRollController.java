@@ -15,7 +15,7 @@ import java.util.concurrent.ThreadLocalRandom;
 public class DiceRollController {
     @GetMapping("/roll-dice")
     public String displayRollDice(){
-        return "/roll-dice";
+        return "roll-dice";
     }
 
     @GetMapping("/roll-dice/{chosen}")
@@ -26,6 +26,6 @@ public class DiceRollController {
         model.addAttribute("chosen", chosen);
         model.addAttribute("isMatching", chosen == randomNumber);
 
-        return "/roll-dice";
+        return "roll-dice";
     }
 }
