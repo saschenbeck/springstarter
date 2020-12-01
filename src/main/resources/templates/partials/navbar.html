@@ -7,21 +7,21 @@
 <body>
 
     <nav th:fragment="nav">
-        <ul>
+        <ul class="nav bg-dark">
             <li class="nav-item">
-                <a href="#">Blog</a>
+                <a th:href="@{/}" class="nav-link text-light">Blog</a>
             </li>
             <li class="nav-item">
-                <a href="#">Posts</a>
+                <a th:href="@{/posts}" class="nav-link text-light">Posts</a>
             </li>
             <li class="nav-item">
-                <a href="#">Create</a>
+                <a th:href="@{/posts/create}" class="nav-link text-light">Create</a>
+            </li>
+            <li class="nav-item ml-auto">
+                <a th:href="@{/register}" class="nav-link text-light">Register</a>
             </li>
             <li class="nav-item">
-                <a href="#">Register</a>
-            </li>
-            <li class="nav-item">
-                <a href="#">Login</a>
+                <a th:href="@{/login}" class="nav-link text-light">Login</a>
             </li>
         </ul>
     </nav>
