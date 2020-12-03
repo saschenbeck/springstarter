@@ -12,6 +12,8 @@
     <div class="card">
         <h2 th:text="${ad.title}"></h2>
         <p th:text="${ad.description}"></p>
+        <p>Posted By: <span th:text="${ad.owner.username}"></span></p>
+        <p>Contact: <span th:text="${ad.owner.email}"></span></p>
         <form th:action="@{/ads/{id}/edit(id=${ad.id})}" th:method="get">
             <button class="btn btn-primary">Edit</button>
         </form>
