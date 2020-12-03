@@ -9,8 +9,11 @@
 
 <main class="container">
     <div class="card" th:each="ad : ${ads}">
-        <h3 class="text-center" th:text="${ad.title}"></h3>
-        <p th:text="${ad.description}"></p>
+        <div class="card-body">
+            <h3 class="text-center card-title" th:text="${ad.title}"></h3>
+            <p th:text="${ad.description}" class="card-text"></p>
+            <a th:href="@{/ads/{id}/(id=${ad.id})}" class="btn btn-primary">Show Info</a>
+        </div>
     </div>
 </main>
 
