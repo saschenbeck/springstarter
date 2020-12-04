@@ -17,10 +17,6 @@
         <br />
         <input class="btn btn-success" type="submit" />
     </form>
-    <form th:action="@{/ads/{id}/delete(id=${ad.getId()})}" th:method="post">
-        <button class="btn btn-danger">Delete</button>
-    </form>
-
 </main>
 
 <footer th:replace="partials/footer :: footer"></footer>

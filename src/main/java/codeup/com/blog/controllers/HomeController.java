@@ -9,9 +9,8 @@ import org.springframework.web.bind.annotation.ResponseBody;
 @Controller
 public class HomeController {
     @GetMapping("/")
-    @ResponseBody
     public String showLandingPage(){
-        return "This is the landing page!";
+        return "ads/index";
     }
 
     @GetMapping("/home")
