@@ -8,7 +8,7 @@
 <header th:replace="partials/header :: header('Welcome to the Blog!')"></header>
 
 <main class="container">
-    <form th:action="@{/ads/{id}/edit(id=${ad.id})}" th:method="post">
+    <form th:action="@{/ads/{id}/edit(id=${ad.id})}" th:method="post" th:object="ad">
         Title:
         <input name="title" id="name-ipt" th:value="${ad.title}"/>
         <br />

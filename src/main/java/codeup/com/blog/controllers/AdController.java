@@ -5,6 +5,7 @@ import codeup.com.blog.models.Post;
 import codeup.com.blog.models.User;
 import codeup.com.blog.repos.AdRepository;
 import codeup.com.blog.repos.UserRepository;
+import codeup.com.blog.services.EmailService;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
@@ -14,10 +15,12 @@ public class AdController {
 
     private final AdRepository adDao;
     private final UserRepository userDao;
+    private final EmailService emailService;
 
-    public AdController(AdRepository adDao, UserRepository userDao){
+    public AdController(AdRepository adDao, UserRepository userDao, EmailService emailService){
         this.adDao = adDao;
         this.userDao = userDao;
+        this.emailService = emailService;
     }
 
     @GetMapping("/ads")
@@ -43,6 +46,7 @@ public class AdController {
         User user = userDao.getOne(1L);
         adToBeSaved.setOwner(user);
         Ad dbAd = adDao.save(adToBeSaved);
+        emailService.prepareAndSend(dbAd, "Ad has been created", "You can find it with the id of " + dbAd.getId());
         return "redirect:/ads/" + dbAd.getId();
     }
 
@@ -53,16 +57,11 @@ public class AdController {
     }
 
     @PostMapping("/ads/{id}/edit")
-    public String editAd(
-            @PathVariable long id,
-            @RequestParam(name = "title") String title,
-            @RequestParam(name = "description") String desc
-    ){
-        Ad dbAd = adDao.getOne(id);
-        dbAd.setTitle(title);
-        dbAd.setDescription(desc);
-        adDao.save(dbAd);
-        return "redirect:/ads/" + dbAd.getId();
+    public String editAd(@ModelAttribute Ad adToBeUpdated){
+        User user = userDao.getOne(1L);
+        adToBeUpdated.setOwner(user);
+        adDao.save(adToBeUpdated);
+        return "redirect:/ads/";
     }
 
     @PostMapping("/ads/{id}/delete")

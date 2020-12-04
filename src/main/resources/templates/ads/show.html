@@ -18,7 +18,7 @@
         <form th:action="@{/ads/{id}/edit(id=${ad.id})}" th:method="get">
             <button class="btn btn-primary">Edit</button>
         </form>
-        <form th:action="@{/ads/{id}/delete(id=${ad.getId()})}" th:method="post">
+        <form th:action="@{|/ads/${ad.id}/delete|}" th:method="post">
             <button class="btn btn-danger">Delete</button>
         </form>
     </div>
