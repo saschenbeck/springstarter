@@ -22,6 +22,11 @@
         <li class="nav-item">
             <a class="nav-link text-light" th:href="@{/login}">Login</a>
         </li>
+        <li>
+            <form th:action="@{/logout}" th:method="post">
+                <button class="btn-link btn" style="margin-top: 8px">Logout</button>
+            </form>
+        </li>
     </ul>
 </nav>
 </body>
