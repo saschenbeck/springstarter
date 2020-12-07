@@ -15,7 +15,7 @@
         <p>Posted By: <span th:text="${ad.owner.username}"></span></p>
         <p>Contact: <span th:text="${ad.owner.email}"></span></p>
         <ul>
-            <li th:each="category : ${ad.}"></li>
+            <li th:each="category : ${ad.categories}" th:text="${category.name}"></li>
         </ul>
         <form th:action="@{/ads/{id}/edit(id=${ad.id})}" th:method="get">
             <button class="btn btn-primary">Edit</button>
